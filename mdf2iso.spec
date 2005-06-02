@@ -1,12 +1,12 @@
 Summary:	Utility to convert an Alcohol 120% bin images to ISO-9660 format
 Summary(pl):	Narzêdzie do konwertowania obrazów wykonanych przez program Alcohol 120% na format ISO-9660
 Name:		mdf2iso
-Version:	0.2.2
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://download.berlios.de/mdf2iso/%{name}-%{version}-src.tar.bz2
-# Source0-md5:	de70666f7e54e5dacc5ffdebc2db8695
+# Source0-md5:	a190625318476a196930ac66acd8fd07
 URL:		http://mdf2iso.berlios.de/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -18,21 +18,27 @@ Narzêdzie do konwertowania obrazów wykonanych przez program Alcohol
 120% na format ISO-9660.
 
 %prep
-%setup -q -n %{name}-%{version}-src
+%setup -q -n %{name}
 
 %build
-%{__cc} %{rpmldflags} %{rpmcflags} src/mdf2iso.c -o mdf2iso
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+%configure
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 
-install mdf2iso $RPM_BUILD_ROOT%{_bindir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG
+%doc ChangeLog
 %attr(755,root,root) %{_bindir}/*
