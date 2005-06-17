@@ -8,6 +8,8 @@ Group:		Applications/System
 Source0:	http://download.berlios.de/mdf2iso/%{name}-%{version}-src.tar.bz2
 # Source0-md5:	a190625318476a196930ac66acd8fd07
 URL:		http://mdf2iso.berlios.de/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
