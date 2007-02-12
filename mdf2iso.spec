@@ -1,5 +1,5 @@
 Summary:	Utility to convert an Alcohol 120% bin images to ISO-9660 format
-Summary(pl):	Narzêdzie do konwertowania obrazów wykonanych przez program Alcohol 120% na format ISO-9660
+Summary(pl.UTF-8):   NarzÄ™dzie do konwertowania obrazÃ³w wykonanych przez program Alcohol 120% na format ISO-9660
 Name:		mdf2iso
 Version:	0.3.0
 Release:	2
@@ -17,8 +17,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Utility to convert an Alcohol 120% bin images to ISO-9660 format.
 
-%description -l pl
-Narzêdzie do konwertowania obrazów wykonanych przez program Alcohol
+%description -l pl.UTF-8
+NarzÄ™dzie do konwertowania obrazÃ³w wykonanych przez program Alcohol
 120% na format ISO-9660.
 
 %prep
